@@ -1,11 +1,5 @@
 ﻿using System;
 
-//Bir string nesnesi üzerinde aşağıdaki işlemleri yapan programı yazınız?
-
-
-
-
-
 namespace OOPHomework1String
 {
     class Program
@@ -41,13 +35,9 @@ namespace OOPHomework1String
                 case "3":
                     Choice3();
                     break;
-                default:
-                    Console.WriteLine("Error.");
-                    return;
             }
         }
-        //    -	Verilen bir karakter dizininin string nesnesi içerisinde kaç
-        // defa bulunduğunu örnek deki gibi yazdırınız?(10)
+
         static void Choice1()
         {
             Console.Write("\nAranılacak kelime: ");
@@ -67,8 +57,6 @@ namespace OOPHomework1String
             } while (true);
 
         }
-        //    -Verilen bir karakter dizininin substring() metodunu kullanarak string
-        // içerisinde kaç defa geçtiğinin örnek deki gibi yazdırınız?(10)
 
         static void Choice2()
         {
@@ -85,11 +73,33 @@ namespace OOPHomework1String
                 }
             }
         }
-        //    -Verilen bir string nesnenin içerisinde Alfabenin karakterlerinin her birinden kaç adet
-        // olduğunu bulan ve örnekteki verilen formatta yazdıran kodu yazınız? (30)
+
         static void Choice3()
         {
+            Console.Write("Karakter Dizini: ");
+            string baseString = Console.ReadLine();
 
+            string upperString = baseString.ToUpper();
+
+            int[] countByChar = new int[26];
+
+            for (int i = 0; i < 26; i++)
+            {
+                countByChar[i] = 0;
+            }
+
+            for (int i = 0; i < upperString.Length; i++)
+            {
+                if ((int)upperString[i] > 64 && (int)upperString[i] < 96)
+                {
+                    countByChar[upperString[i] - 65]++;
+                }
+            }
+
+            for (int i = 0; i < 26; i++)
+            {
+                Console.WriteLine((char) (i + 65) + ",\tsayısı: " + countByChar[i]);
+            }
         }
     }
 }

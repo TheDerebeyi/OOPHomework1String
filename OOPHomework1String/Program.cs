@@ -98,7 +98,13 @@ namespace OOPHomework1String
 
             for (int i = 0; i < 26; i++)
             {
-                Console.WriteLine((char) (i + 65) + ",\tsayısı: " + countByChar[i]);
+                Console.Write((char) (i + 65) + ",\tsayısı: " + countByChar[i]);
+                for (int j = 0; j < countByChar[i]; j++)
+                {
+                    Console.Write(" "+"*");
+                }
+
+                Console.WriteLine();
             }
         }
     }
